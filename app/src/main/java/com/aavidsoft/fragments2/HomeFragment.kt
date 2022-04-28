@@ -26,7 +26,13 @@ class HomeFragment : Fragment() {
         binding.txtUserInfo.text = "$userName ($userCode)"
 
         binding.btnFinish.setOnClickListener {
-            (activity as MainActivity).data = binding.edtData.text.toString()
+
+            //way2 -- direct to loginfragment
+            (parentFragmentManager.findFragmentById(R.id.loginFragment) as LoginFragment)
+                .data = binding.edtData.text.toString()
+
+            //way 1 -- through the main activity
+            //(activity as MainActivity).data = binding.edtData.text.toString()
             parentFragmentManager.beginTransaction()
                 .remove(this)
                 .commit()
