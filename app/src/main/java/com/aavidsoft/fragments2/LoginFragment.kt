@@ -12,6 +12,12 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding : LoginFragmentBinding
 
+    var data : String? = null
+    set(value) {
+        field = value
+        binding.txtData.text = value
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

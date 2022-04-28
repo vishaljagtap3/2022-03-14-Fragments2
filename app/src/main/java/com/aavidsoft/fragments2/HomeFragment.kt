@@ -25,6 +25,13 @@ class HomeFragment : Fragment() {
 
         binding.txtUserInfo.text = "$userName ($userCode)"
 
+        binding.btnFinish.setOnClickListener {
+            (activity as MainActivity).data = binding.edtData.text.toString()
+            parentFragmentManager.beginTransaction()
+                .remove(this)
+                .commit()
+        }
+
         return binding.root
     }
 

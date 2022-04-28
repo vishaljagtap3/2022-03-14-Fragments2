@@ -28,4 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/txtData"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
