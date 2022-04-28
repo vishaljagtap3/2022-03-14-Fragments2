@@ -13,6 +13,12 @@ class HomeFragment : Fragment() {
     private var userName : String? = null
     private var userCode : Int? = null
 
+    interface OnDataListener {
+        fun onData(data : String)
+    }
+
+    var onDataListener : OnDataListener? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,9 +33,12 @@ class HomeFragment : Fragment() {
 
         binding.btnFinish.setOnClickListener {
 
+            //way 3 - Using custom event delegation model
+            onDataListener?.onData(binding.edtData.text.toString())
+
             //way2 -- direct to loginfragment
-            (parentFragmentManager.findFragmentById(R.id.loginFragment) as LoginFragment)
-                .data = binding.edtData.text.toString()
+           /* (parentFragmentManager.findFragmentById(R.id.loginFragment) as LoginFragment)
+                .data = binding.edtData.text.toString()*/
 
             //way 1 -- through the main activity
             //(activity as MainActivity).data = binding.edtData.text.toString()

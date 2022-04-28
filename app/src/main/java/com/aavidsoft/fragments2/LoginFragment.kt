@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
             inputBundle.putInt("usercode", 101)
 
             homeFragment.arguments = inputBundle
+            homeFragment.onDataListener = MyOnDataListener()
 
             parentFragmentManager.beginTransaction()
                 .add(R.id.mainContainer, homeFragment, null)
@@ -41,6 +42,12 @@ class LoginFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    inner class MyOnDataListener : HomeFragment.OnDataListener {
+        override fun onData(data: String) {
+            this@LoginFragment.data = data
+        }
     }
 }
 
